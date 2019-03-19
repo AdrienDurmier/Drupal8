@@ -30,12 +30,14 @@ class PhotoBlock extends BlockBase implements BlockPluginInterface{
         $photos_array = [];
         if ($photos) {
             foreach ($photos as $item){
-                $file = File::load($item[0]);
-                $photos_array[] = file_create_url($file->getFileUri());
+                // dump($item);die();
+                $file = File::load($item['photo']);
+                $photos_array[] = [
+                    'url' => file_create_url($file->getFileUri()),
+                    'alt' => $item['alt'],
+                ];
             }
         }
-
-        //dump($tests);
 
         return array(
             '#theme' => 'photo_block',
@@ -56,15 +58,16 @@ class PhotoBlock extends BlockBase implements BlockPluginInterface{
 
         $config = $this->getConfiguration();
 
+
         $items = [];
         if ($config['photos']) {
             $items = $config['photos'];
         }
-
+        // dump($items);
 
         $form['#tree'] = TRUE;
 
-        $form['items_fieldset'] = [
+        $form['photos'] = [
             '#type' => 'fieldset',
             '#title' => $this->t('Photos'),
             '#prefix' => '<div id="items-fieldset-wrapper">',
@@ -77,7 +80,7 @@ class PhotoBlock extends BlockBase implements BlockPluginInterface{
         $name_field = $form_state->get('num_items');
         for ($i = 0; $i < $name_field; $i++) {
             $items = array_values($items);
-            $form['items_fieldset']['items'][$i] = [
+            $form['photos'][$i]['photo'] = [
                 '#type' => 'managed_file',
                 '#title' => t('Photo'),
                 '#description' => t('Extensions autorisées'). ': gif png jpg jpeg',
@@ -86,15 +89,22 @@ class PhotoBlock extends BlockBase implements BlockPluginInterface{
                 ),
                 '#upload_location' => 'public://photo',
                 '#default_value' => $items[$i],
-                '#required' => TRUE,
+                '#required' => FALSE,
+            ];
+
+            $form['photos'][$i]['alt'] = [
+                '#type' => 'textfield',
+                '#title' => t('Description'),
+                '#default_value' => $items[$i]['alt'],
+                '#required' => FALSE,
             ];
         }
 
-        $form['items_fieldset']['actions'] = [
+        $form['photos']['actions'] = [
             '#type' => 'actions',
         ];
 
-        $form['items_fieldset']['actions']['add_item'] = [
+        $form['photos']['actions']['add_item'] = [
             '#type' => 'submit',
             '#value' => t('Add'),
             '#submit' => [[$this, 'addOne']],
@@ -105,9 +115,9 @@ class PhotoBlock extends BlockBase implements BlockPluginInterface{
         ];
 
         if ($name_field > 1) {
-            $form['items_fieldset']['actions']['remove_item'] = [
+            $form['photos']['actions']['remove_item'] = [
                 '#type' => 'submit',
-                '#value' => t('Remove one'),
+                '#value' => t('Remove'),
                 '#submit' => [[$this, 'removeCallback']],
                 '#ajax' => [
                     'callback' => [$this, 'addmoreCallback'],
@@ -136,7 +146,7 @@ class PhotoBlock extends BlockBase implements BlockPluginInterface{
      * @return mixed
      */
     public function addmoreCallback(array &$form, FormStateInterface $form_state) {
-        return $form['settings']['items_fieldset'];
+        return $form['settings']['photos'];
     }
 
     /**
@@ -156,16 +166,20 @@ class PhotoBlock extends BlockBase implements BlockPluginInterface{
      * {@inheritdoc}
      */
     public function blockSubmit($form, FormStateInterface $form_state) {
-        foreach ($form_state->getValues() as $key => $value) {
-            if ($key === 'items_fieldset') {
-                if (isset($value['items'])) {
-                    $items = $value['items'];
-                    foreach ($items as $key => $item) {
-                        if ($item === '' || !$item) {
-                            unset($items[$key]);
-                        }
+        $this->configuration['photos'] = null;
+        $photos = $form_state->getValues();
+        if (isset($photos['photos'])) {
+            foreach ($photos['photos'] as $key => $value) {
+                $items = $value['photo'];
+                foreach ($items as $key => $photo) {
+                    if ($photo === '' || !$photo) {
+                        unset($items[$key]);
                     }
-                    $this->configuration['photos'] = $items;
+                    $item = [
+                        'photo' => $value['photo'][0],
+                        'alt' => $value['alt'],
+                    ];
+                    $this->configuration['photos'][] = $item;
                 }
             }
         }

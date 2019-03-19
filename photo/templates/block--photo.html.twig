@@ -12,8 +12,8 @@
         <div class="row">
             {% for photo in photos %}
                 <div class="col-md-4">
-                    <a href="{{ photo }}" title="todo">
-                        <img src="{{ photo }}" class="img-fluid" alt="todo">
+                    <a href="{{ photo.url }}" title="{{ photo.alt }}">
+                        <img src="{{ photo.url }}" class="img-fluid" alt="{{ photo.alt }}">
                     </a>
                 </div>
             {% endfor %}
