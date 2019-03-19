@@ -1,0 +1,42 @@
+uuid: 0cba318c-b6d1-4ae2-a441-6dcc6ad9a757
+langcode: fr
+status: true
+dependencies:
+  config:
+    - block_content.type.carousel
+    - field.field.block_content.carousel.field_carousel_items
+  module:
+    - paragraphs
+id: block_content.carousel.default
+targetEntityType: block_content
+bundle: carousel
+mode: default
+content:
+  field_carousel_items:
+    type: entity_reference_paragraphs
+    weight: 27
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

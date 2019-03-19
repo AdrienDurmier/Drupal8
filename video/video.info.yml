@@ -1,0 +1,7 @@
+name: Youtube videos gallery
+description: Build a easy videos gallery block with multiple Youtube playlists.
+package: Maquette
+type: module
+core: 8.x
+version: 1.0
+configure: 'maquette.video.settings'

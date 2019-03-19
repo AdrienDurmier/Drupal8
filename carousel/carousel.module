@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * @file
+ * Module file for carousel.
+ */
+/**
+ * Implements hook_theme().
+ */

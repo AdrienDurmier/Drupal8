@@ -1,0 +1,10 @@
+{% block paragraph %}
+    {% block content %}
+        {#<a href="/{{ paragraph.field_diapo_lien.value|striptags }}">#}
+            <img src="{{ file_url(content.field_carousel_item_img['#items'].entity.uri.value) }}" alt="{{ content.field_carousel_item_img['#items'].alt }}">
+            <div class="carousel-caption">
+                <div>{{ content.field_carousel_item_title }}</div>
+            </div>
+        {#</a>#}
+    {% endblock %}
+{% endblock paragraph %}

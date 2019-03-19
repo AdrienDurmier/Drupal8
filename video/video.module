@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Module file for video.
+ * @author Adrien Durmier
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function video_theme() {
+    // Add a hook_theme in your .module file for pass any variables to the twig templates.
+    // @doc https://www.drupal.org/docs/8/creating-custom-modules/create-a-custom-block
+    return array(
+        'video_block' => array(
+            'variables' => array(
+                'playlist' => NULL
+            ),
+            'template' => 'block--video',
+        ),
+    );
+}
+
+/**
+ * Implements hook_menu()
+ */
+function video_menu(){
+
+    $items = array();
+    $items['admin/config/video'] = array(
+        'title' => t('Videos gallery'),
+        'description' => t('Set videos gallery.'),
+        'route_name' => 'maquette.video.settings'
+    );
+    return $items;
+
+}

@@ -1,0 +1,23 @@
+{#
+    Fiche Article
+    @author Adrien Durmier
+#}
+
+<div class="row">
+    <div class="col-12 col-md-4">
+        <img class="img-fluid" src="{{ file_url(content.field_image['#items'].entity.uri.value) }}" alt="{{ content.field_image['#items'].alt }}"/>
+        <hr>
+        {{ content.field_tags }}
+    </div>
+    <div class="col-12 col-md-8">
+        {{ node.body.value|raw }}
+    </div>
+</div>
+
+<hr>
+
+<div class="row">
+    <div class="col-12">
+        {{ content.comment }}
+    </div>
+</div>

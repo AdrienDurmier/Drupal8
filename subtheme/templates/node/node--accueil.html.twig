@@ -1,0 +1,31 @@
+{# Carousel #}
+<div id="front_carousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        {% for key, item in content.field_carrousel if key|first != '#' %}
+            <li data-target="#front_carousel" data-slide-to="{{ loop.index0 }}" class="{{ (loop.first) ? 'active' : '' }}"></li>
+        {% endfor %}
+    </ol>
+    <div class="carousel-inner">
+        {% for key, item in content.field_carrousel if key|first != '#' %}
+            <div class="carousel-item {{ (loop.first) ? 'active' : '' }}">
+                {{ item }}
+            </div>
+        {% endfor %}
+    </div>
+    <a class="carousel-control-prev" href="#front_carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#front_carousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+{# Titre #}
+<h1>{{ content.title }}</h1>
+
+<h2>Vidéo de présentation</h2>
+<iframe id="front_video" src="https://www.youtube.com/embed/{{ node.field_accueil_lien_video.value }}" frameborder="0" allowfullscreen></iframe>
+
+{{ node.body.value|raw }}

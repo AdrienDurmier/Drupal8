@@ -1,0 +1,6 @@
+name: Photos gallery
+description: Nice photos gallery using blueimp
+package: Maquette
+type: module
+core: 8.x
+version: 1.0

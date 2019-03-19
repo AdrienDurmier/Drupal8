@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Module file for photo.
+ * @author Adrien Durmier
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function photo_theme() {
+    return array(
+        'photo_block' => array(
+            'variables' => array(
+                'photos' => NULL
+            ),
+            'template' => 'block--photo',
+        ),
+    );
+}

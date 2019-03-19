@@ -1,0 +1,54 @@
+{# Titre #}
+<h1>{{ content.title }}</h1>
+
+<div class="row">
+    <div class="col-md-4 bg-light">
+        {% if node.field_mentions_code_ape.value %}
+            <p>
+                <b>Activité (Code NAF ou APE)</b>
+                <br>{{ node.field_mentions_code_ape.value }}
+            </p>
+        {% endif %}
+
+        {% if node.field_mentions_adresse.value %}
+            <p>
+                <b>Adresse</b>
+                {{ node.field_mentions_adresse.value|raw }}
+            </p>
+        {% endif %}
+
+        {% if node.field_mentions_forme_juridique.value %}
+            <p>
+                <b>Forme juridique</b>
+                <br>{{ node.field_mentions_forme_juridique.value }}
+            </p>
+        {% endif %}
+
+        {% if node.field_mentions_credits_photos.value %}
+            <p>
+                <b>Crédits photos</b>
+                <br>{{ node.field_mentions_credits_photos.value }}
+            </p>
+        {% endif %}
+
+        {% if node.field_mentions_credits_videos.value %}
+            <p>
+                <b>Crédits vidéos</b>
+                <br>{{ node.field_mentions_credits_videos.value }}
+            </p>
+        {% endif %}
+
+        {% if node.field_mentions_hebergement.value %}
+        <p>
+            <b>Hébergement</b>
+            {{ node.field_mentions_hebergement.value|raw }}
+        </p>
+        {% endif %}
+
+    </div>
+
+    <div class="col-md-8">
+        {# Contenu #}
+        {{ node.body.value|raw }}
+    </div>
+</div>

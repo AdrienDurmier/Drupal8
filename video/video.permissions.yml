@@ -1,0 +1,4 @@
+video_permissions:
+  title: 'Change Google api key'
+  description: ''
+  restrict access: false

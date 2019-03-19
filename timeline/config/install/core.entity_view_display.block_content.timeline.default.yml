@@ -1,0 +1,25 @@
+uuid: bc4af70d-9cff-4297-9582-caddc107f35e
+langcode: fr
+status: true
+dependencies:
+  config:
+    - block_content.type.timeline
+    - field.field.block_content.timeline.field_timeline_events
+  module:
+    - entity_reference_revisions
+id: block_content.timeline.default
+targetEntityType: block_content
+bundle: timeline
+mode: default
+content:
+  field_timeline_events:
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

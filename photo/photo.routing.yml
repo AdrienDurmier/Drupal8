@@ -1,0 +1,7 @@
+maquette.photo.settings:
+  path: '/admin/config/photos-gallery'
+  defaults:
+    _form: '\Drupal\photo\Form\SettingsForm'
+    _title: 'Photos gallery settings'
+  requirements:
+    _permission: 'photo_settings'

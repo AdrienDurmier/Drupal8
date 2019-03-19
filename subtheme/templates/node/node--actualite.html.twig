@@ -1,0 +1,17 @@
+{#
+    Fiche actualité
+    @author Adrien Durmier
+#}
+
+<div class="row">
+    <div class="col-12 col-md-4">
+        <img class="img-fluid" src="{{ file_url(content.field_actualite_image['#items'].entity.uri.value) }}" alt="{{ content.field_actualite_image['#items'].alt }}"/>
+        {#<em class="text-muted">{{ 'Published on'|t }} {{ node.created.value|format_date('date_sans_heure') }}</em>#}
+    </div>
+
+    <div class="col-12 col-md-8">
+        <span class="text-muted text-uppercase">{{ node.field_actualite_date.value|date('U')|format_date('date_sans_heure') }}</span>
+        <hr>
+        {{ node.body.value|raw }}
+    </div>
+</div>

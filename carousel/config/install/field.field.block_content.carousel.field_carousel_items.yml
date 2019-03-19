@@ -1,0 +1,34 @@
+uuid: 82cabad1-8bda-4698-8f41-7e33f455dd9c
+langcode: fr
+status: true
+dependencies:
+  config:
+    - block_content.type.carousel
+    - field.storage.block_content.field_carousel_items
+    - paragraphs.paragraphs_type.carousel_item
+  module:
+    - entity_reference_revisions
+id: block_content.carousel.field_carousel_items
+field_name: field_carousel_items
+entity_type: block_content
+bundle: carousel
+label: Diaporamas
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      carousel_item: carousel_item
+    target_bundles_drag_drop:
+      carousel_item:
+        enabled: true
+        weight: 3
+      timeline_event:
+        weight: 4
+        enabled: false
+field_type: entity_reference_revisions

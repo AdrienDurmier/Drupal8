@@ -1,0 +1,31 @@
+uuid: 7c089d0e-c5a6-433d-bfe6-ae2bbb7c149d
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.timeline_event.field_timeline_event_date
+    - field.field.paragraph.timeline_event.field_timeline_event_details
+    - paragraphs.paragraphs_type.timeline_event
+  module:
+    - text
+id: paragraph.timeline_event.default
+targetEntityType: paragraph
+bundle: timeline_event
+mode: default
+content:
+  field_timeline_event_date:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_timeline_event_details:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

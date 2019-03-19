@@ -1,0 +1,7 @@
+photo_assets:
+    css:
+        theme:
+            assets/css/blueimp-gallery.min.css: {}
+    js:
+        assets/js/video.js: {}
+        assets/js/blueimp-gallery.min.js: {}

@@ -1,0 +1,11 @@
+{{ node.body.value|raw }}
+
+<div class="timeline">
+    {% for key, item in content.field_evenements_historique if key|first != '#' %}
+      <div class="timeline-container {{ (loop.index0%2) ? 'timeline-even"' : 'timeline-odd' }}">
+          <div class="timeline-content">
+              {{ item }}
+          </div>
+      </div>
+    {% endfor %}
+</div>

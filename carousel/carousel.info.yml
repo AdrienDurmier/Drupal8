@@ -1,0 +1,8 @@
+name: Carousel
+description: Carousel of item
+package: Maquette
+type: module
+dependencies:
+  - drupal:block
+  - paragraphs:paragraphs
+core: '8.x'

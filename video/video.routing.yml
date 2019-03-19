@@ -1,0 +1,7 @@
+maquette.video.settings:
+  path: '/admin/config/videos-gallery'
+  defaults:
+    _form: '\Drupal\video\Form\SettingsForm'
+    _title: 'Video gallery settings'
+  requirements:
+    _permission: 'video_settings'

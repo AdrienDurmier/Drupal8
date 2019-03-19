@@ -1,0 +1,6 @@
+video_assets:
+    css:
+        theme:
+            assets/css/video.css: {}
+    js:
+        assets/js/video.js: {}

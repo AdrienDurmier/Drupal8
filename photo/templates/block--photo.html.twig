@@ -1,0 +1,33 @@
+{#
+/**
+ * Photos gallery
+ * @author Adrien Durmier
+ */
+#}
+
+{% if photos is null %}
+    <p>Aucune photo n'a été publiée.</p>
+{% else %}
+    <div id="links">
+        <div class="row">
+            {% for photo in photos %}
+                <div class="col-md-4">
+                    <a href="{{ photo }}" title="todo">
+                        <img src="{{ photo }}" class="img-fluid" alt="todo">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}
+
+
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>

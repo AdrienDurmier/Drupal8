@@ -1,0 +1,31 @@
+uuid: 7d27ac37-0c45-45d2-b6be-ca11b9b06ae8
+langcode: fr
+status: true
+dependencies:
+  config:
+    - block_content.type.timeline
+    - field.storage.block_content.field_timeline_events
+    - paragraphs.paragraphs_type.timeline_event
+  module:
+    - entity_reference_revisions
+id: block_content.timeline.field_timeline_events
+field_name: field_timeline_events
+entity_type: block_content
+bundle: timeline
+label: Événements
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      timeline_event: timeline_event
+    target_bundles_drag_drop:
+      timeline_event:
+        enabled: true
+        weight: 2
+field_type: entity_reference_revisions

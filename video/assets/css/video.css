@@ -1,0 +1,13 @@
+.video_lien {cursor: pointer;}
+.video_thumb {background-size: cover;background-position: center center;}
+
+/* Modal Video */
+#modalVideo {background-color:rgba(0,0,0,0.6);}
+#modalVideo iframe{width:100%;height:500px;}
+#modalVideo .modal-dialog {max-width:1055px;}
+#modalVideo .modal-content {background-color:rgba(0, 0, 0, 0.8);}
+#modalVideo .modal-content .close {color:#fff;font-size:30px;margin-top:-12px;opacity:1;padding:0;}
+#modalVideo .modal-header {border-bottom:0 none;}
+@media(max-width:768px){
+    #modalVideo iframe{height:320px;}
+}
