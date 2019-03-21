@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * Module file for jobposting.
+ * @author Adrien Durmier
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function jobposting_theme() {
+    return array(
+        'jobposting_block' => array(
+            'variables' => array(
+                'items' => NULL,
+                'form' => NULL
+            ),
+            'template' => 'block--jobposting',
+        ),
+        'node__jobposting' => [
+            'template' => 'node--jobposting',
+            'base hook' => 'node',
+        ],
+    );
+}

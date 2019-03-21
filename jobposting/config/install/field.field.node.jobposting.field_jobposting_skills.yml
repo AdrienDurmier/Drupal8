@@ -1,0 +1,21 @@
+uuid: 77938bbf-2c10-4afd-b82d-ce238074722c
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_jobposting_skills
+    - node.type.jobposting
+  module:
+    - text
+id: node.jobposting.field_jobposting_skills
+field_name: field_jobposting_skills
+entity_type: node
+bundle: jobposting
+label: Compétences
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

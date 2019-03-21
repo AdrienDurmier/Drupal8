@@ -1,0 +1,19 @@
+uuid: fd0286c6-2505-49a2-a8cd-97ab17098d84
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_jobposting_jobbenefits
+    - node.type.jobposting
+id: node.jobposting.field_jobposting_jobbenefits
+field_name: field_jobposting_jobbenefits
+entity_type: node
+bundle: jobposting
+label: Avantages
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

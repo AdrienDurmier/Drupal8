@@ -1,0 +1,19 @@
+uuid: cc6c9108-2bcc-4722-8afa-67358da722a1
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_jobposting_exprequirements
+    - node.type.jobposting
+id: node.jobposting.field_jobposting_exprequirements
+field_name: field_jobposting_exprequirements
+entity_type: node
+bundle: jobposting
+label: 'Expérience minimum exigée'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

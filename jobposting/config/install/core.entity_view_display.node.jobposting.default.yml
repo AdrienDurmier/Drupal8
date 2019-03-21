@@ -1,0 +1,100 @@
+uuid: 5f478a6b-963f-4c0f-a7b4-350f432f5b9b
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.node.jobposting.body
+    - field.field.node.jobposting.field_jobposting_basesalary
+    - field.field.node.jobposting.field_jobposting_educrequirement
+    - field.field.node.jobposting.field_jobposting_employmenttype
+    - field.field.node.jobposting.field_jobposting_exprequirements
+    - field.field.node.jobposting.field_jobposting_inccompensation
+    - field.field.node.jobposting.field_jobposting_jobbenefits
+    - field.field.node.jobposting.field_jobposting_skills
+    - field.field.node.jobposting.field_jobposting_workhours
+    - node.type.jobposting
+  module:
+    - options
+    - text
+    - user
+id: node.jobposting.default
+targetEntityType: node
+bundle: jobposting
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_jobposting_basesalary:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_jobposting_educrequirement:
+    weight: 7
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_jobposting_employmenttype:
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_jobposting_exprequirements:
+    weight: 8
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_jobposting_inccompensation:
+    weight: 4
+    label: visually_hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_jobposting_jobbenefits:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_jobposting_skills:
+    weight: 9
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_jobposting_workhours:
+    weight: 6
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true

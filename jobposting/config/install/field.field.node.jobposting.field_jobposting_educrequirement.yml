@@ -1,0 +1,19 @@
+uuid: 8e5b9ada-7cc1-43e6-a997-9d49f126ac91
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_jobposting_educrequirement
+    - node.type.jobposting
+id: node.jobposting.field_jobposting_educrequirement
+field_name: field_jobposting_educrequirement
+entity_type: node
+bundle: jobposting
+label: 'Diplômes et niveaux d''études exigés'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

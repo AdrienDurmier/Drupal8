@@ -1,0 +1,6 @@
+name: Job Posting search and find
+description: Search and find job posting
+package: Maquette
+type: module
+core: 8.x
+version: 1.0

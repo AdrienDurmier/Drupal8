@@ -1,0 +1,19 @@
+uuid: 130f8b3a-70e3-4c17-a1fe-e7f74a408ee7
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_jobposting_workhours
+    - node.type.jobposting
+id: node.jobposting.field_jobposting_workhours
+field_name: field_jobposting_workhours
+entity_type: node
+bundle: jobposting
+label: 'Fréquence de travail'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

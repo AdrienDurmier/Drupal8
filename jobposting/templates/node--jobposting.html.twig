@@ -1,0 +1,95 @@
+{#
+    JobPosting node override
+    @author Adrien Durmier
+#}
+<div class="row">
+    <div class="col-md-8">
+        <h2>{% trans %}Description{% endtrans %}</h2>
+        <div>{{ node.body.value|raw }}</div>
+        <br>
+        {% if node.field_jobposting_skills is not null %}
+            <h2>{% trans %}Skills{% endtrans %}</h2>
+            <div>{{ node.field_jobposting_skills.value }}</div>
+        {% endif %}
+    </div>
+
+    <div class="col-md-4 bg-light py-3">
+        {% if node.field_jobposting_employmenttype is not null and node.field_jobposting_workhours is not null %}
+            <h2>{% trans %}About the contract{% endtrans %}</h2>
+        {% endif %}
+        {% if node.field_jobposting_employmenttype is not null %}
+            <p>
+                <b>{% trans %}Employement Type{% endtrans %}:</b>
+                {% set list_value = node.field_jobposting_employmenttype.value %}
+                {% set employmentType = node.field_jobposting_employmenttype.getSetting('allowed_values')[list_value]%}
+                <br>{{ employmentType }}
+            </p>
+        {% endif %}
+        {% if node.field_jobposting_workhours is not null %}
+            <p>
+                <b>{% trans %}Work Hours{% endtrans %}:</b>
+                <br>{{ node.field_jobposting_workhours.value }}
+            </p>
+        {% endif %}
+
+        {% if node.field_jobposting_educrequirement is not null and node.field_jobposting_exprequirements is not null %}
+            <h2>{% trans %}Requirements{% endtrans %}</h2>
+        {% endif %}
+        {% if node.field_jobposting_educrequirement is not null %}
+            <p>
+                <b>{% trans %}Education requirements{% endtrans %}:</b>
+                <br>{{ node.field_jobposting_educrequirement.value }}
+            </p>
+        {% endif %}
+        {% if node.field_jobposting_exprequirements is not null %}
+            <p>
+                <b>{% trans %}Experience requirements{% endtrans %}:</b>
+                <br>{{ node.field_jobposting_exprequirements.value }}
+            </p>
+        {% endif %}
+
+        {% if node.field_jobposting_basesalary is not null and node.field_jobposting_inccompensation is not null and node.field_jobposting_jobbenefits is not null %}
+            <h2>{% trans %}Remuneration{% endtrans %}</h2>
+        {% endif %}
+        {% if node.field_jobposting_basesalary is not null %}
+            <p>
+                <b>{% trans %}Base salary{% endtrans %}:</b>
+                <br>{{ node.field_jobposting_basesalary.value }}
+            </p>
+        {% endif %}
+        {% if node.field_jobposting_inccompensation is not null %}
+            <p>
+                <b>{% trans %}Incentive compensation {% endtrans %}:</b>
+                <br>{{ node.field_jobposting_inccompensation.value }}
+            </p>
+        {% endif %}
+        {% if node.field_jobposting_jobbenefits is not null %}
+            <p>
+                <b>{% trans %}Job benefits{% endtrans %}:</b>
+                <br>{{ node.field_jobposting_jobbenefits.value }}
+            </p>
+        {% endif %}
+    </div>
+</div>
+
+<hr>
+
+todo webform
+
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "JobPosting",
+      "baseSalary": "{{ node.field_jobposting_basesalary.value }}",
+      "jobBenefits": "{{ node.field_jobposting_jobbenefits.value }}",
+      "datePosted": "2011-10-31",
+      "description": "{{ node.body.value|raw }}",
+      "experienceRequirements": "{{ employmentType }}",
+      "incentiveCompensation": "{{ node.field_jobposting_inccompensation.value }}",
+      "hiringOrganization": "{{ node.field_jobposting_hiringorg.value }}",
+      "salaryCurrency": "EUR",
+      "skills": "{{ node.field_jobposting_skills.value }}",
+      "title": "{{ node.title.value }}",
+      "workHours": "{{ node.field_jobposting_workhours.value }}"
+    }
+</script>

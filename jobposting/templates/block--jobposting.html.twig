@@ -1,0 +1,78 @@
+{#
+/**
+ * Search and find a job posting
+ * @author Adrien Durmier
+ */
+#}
+
+<div class="row">
+    {# #####################################################################################################################
+        SEARCH ENGINE
+     ##################################################################################################################### #}
+    <div class="col-md-3 bg-light">
+        <form id="jobposting-form" class="jobposting-form" data-drupal-selector="jobposting-form" action="#" method="post" accept-charset="UTF-8" {{ attributes }}>
+            {{ form.form_build_id }}
+            {{ form.form_token }}
+            {{ form.form_id }}
+            <div class="form-row align-items-end">
+                <div class="form-group">
+                    {{ form.title }}
+                </div>
+                <div class="form-group">
+                    {{ form.description }}
+                </div>
+                <div class="form-group">
+                    {{ form.skills }}
+                </div>
+                <div class="form-group">
+                    {{ form.exprequirements }}
+                </div>
+                <div class="form-group">
+                    {{ form.employmenttype }}
+                </div>
+                <div class="form-group">
+                    {{ form.actions.submit }}
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    {# #####################################################################################################################
+        RESULTS
+    ##################################################################################################################### #}
+    <div class="col-md-9">
+        <h2>{% trans %}Search results{% endtrans %}</h2>
+        <p class="text-muted">{{ items|length }} {% trans %}results{% endtrans %}</p>
+        {% if items is  not null %}
+            {% for item in items %}
+                <div class="card my-2">
+                    <div class="card-header">
+                        <a href="{{ path('entity.node.canonical', {'node': item.id}) }}">
+                            {{ item.title.value }}
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            {% set list_value = item.field_jobposting_employmenttype.value %}
+                            <b>{% trans %}Employement Type{% endtrans %}:</b> {{ item.field_jobposting_employmenttype.getSetting('allowed_values')[list_value] }}
+
+                            <br><b>{% trans %}Work Hours{% endtrans %}:</b> {{ item.field_jobposting_workhours.value }}
+
+                            <br><b>{% trans %}Education requirements{% endtrans %}:</b> {{ item.field_jobposting_educrequirement.value }}
+
+                            <br><b>{% trans %}Minimim experience requirements{% endtrans %}:</b> {{ item.field_jobposting_exprequirements.value }} {% trans %}years{% endtrans %}
+
+                            <br><b>{% trans %}Skills{% endtrans %}:</b> {{ item.field_jobposting_skills.value }}
+
+                            <br><b>{% trans %}Description{% endtrans %}:</b> {{ item.body.value }}
+                        </div>
+                    </div>
+                    <div class="card-footer text-right">
+                        <a href="{{ path('entity.node.canonical', {'node': item.id}) }}" class="btn btn-sm btn-primary">{% trans %}Apply{% endtrans %}</a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>

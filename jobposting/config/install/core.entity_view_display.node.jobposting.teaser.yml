@@ -1,0 +1,31 @@
+uuid: 9552c091-5702-4b24-910d-7a9b616e4e2b
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.jobposting.body
+    - node.type.jobposting
+  module:
+    - text
+    - user
+id: node.jobposting.teaser
+targetEntityType: node
+bundle: jobposting
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true

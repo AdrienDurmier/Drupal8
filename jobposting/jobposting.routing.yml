@@ -1,0 +1,7 @@
+maquette.jobposting_form:
+  path: '/job-posting'
+  defaults:
+    _form:  '\Drupal\jobposting\Form\JobPostingForm'
+    _title: 'Find a job posting'
+  requirements:
+    _permission: 'access content'

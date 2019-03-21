@@ -1,0 +1,4 @@
+jobposting_assets:
+    css:
+        theme:
+            assets/css/jobposting.css: {}
